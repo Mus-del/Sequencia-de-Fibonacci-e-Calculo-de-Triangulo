@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    float a, b, c, area, s;
+
+    // Leitura dos lados do triângulo
+    printf("Digite o comprimento do primeiro lado: ");
+    scanf("%f", &a);
+    printf("Digite o comprimento do segundo lado: ");
+    scanf("%f", &b);
+    printf("Digite o comprimento do terceiro lado: ");
+    scanf("%f", &c);
+
+    // Verifica se os lados formam um triângulo
+    if (a + b > c && a + c > b && b + c > a) {
+        // Calcula o semi-perímetro
+        s = (a + b + c) / 2;
+
+        // Calcula a área usando a fórmula de Heron
+        area = sqrt(s * (s - a) * (s - b) * (s - c));
+
+        // Exibe a área
+        printf("A área do triângulo é: %.2f\n", area);
+
+        // Determina o tipo de triângulo
+        if (a == b && b == c) {
+            printf("O triângulo é equilátero.\n");
+        } else if (a == b || b == c || a == c) {
+            printf("O triângulo é isósceles.\n");
+        } else {
+            printf("O triângulo é escaleno.\n");
+        }
+    } else {
+        printf("Os valores fornecidos não formam um triângulo.\n");
+    }
+
+    return 0;
+}
